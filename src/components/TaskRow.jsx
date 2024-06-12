@@ -2,7 +2,8 @@ import React from 'react';
 
 const TaskRow = ({ task, deleteTask, markAsDone }) => {
 
-  const rowClass = task.isOverdue ? 'table-danger' : '';
+  const isOverdue = new Date(task.deadline) < new Date();
+  const rowClass = isOverdue ? 'table-danger' : '';
 
   return (
     <tr className={rowClass}>

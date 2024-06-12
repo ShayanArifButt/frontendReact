@@ -2,26 +2,27 @@ import React, { useState, useEffect } from 'react';
 import TaskInputForm from '../components/TaskInputForm';
 import TaskTable from '../components/TaskTable';
 import axios from 'axios';
+import { ENDPOINTS } from '../config/config';
+
 
 const HomePage = () => {
   const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/tasks')
+    axios.get(ENDPOINTS.TASKS)
       .then(response => setTasks(response.data))
       .catch(error => console.error(error));
   }, []);
 
   const addTask = (task) => {
     task.done = false;
-    task.isOverdue = new Date(task.deadline) < new Date();
-    axios.post('http://localhost:5000/tasks', task)
+    axios.post(ENDPOINTS.TASKS, task)
       .then(response =>  setTasks([...tasks, response.data]))
       .catch(error => console.error(error));
   };
 
   const deleteTask = (taskId) => {
-    axios.delete(`http://localhost:5000/tasks/${taskId}`)
+    axios.delete(`${ENDPOINTS.TASKS}/${taskId}`)
       .then(() => setTasks(tasks.filter((task) => task.id !== taskId)))
       .catch(error => console.error(error));
   };
@@ -29,7 +30,7 @@ const HomePage = () => {
   const markAsDone = (taskId) => {
     const taskToUpdate = tasks.find((task) => task.id === taskId);
     const updatedTask = { ...taskToUpdate, done: true };
-    axios.put(`http://localhost:5000/tasks/${taskId}`, updatedTask)
+    axios.put(`${ENDPOINTS.TASKS}/${taskId}`, updatedTask)
       .then(response => setTasks(tasks.map((task) => task.id === taskId ? response.data : task)))
       .catch(error => console.error(error));
   };

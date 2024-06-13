@@ -29,7 +29,7 @@ const HomePage = () => {
 
   const markAsDone = (taskId) => {
     const taskToUpdate = tasks.find((task) => task.id === taskId);
-    const updatedTask = { ...taskToUpdate, done: true };
+    const updatedTask = { ...taskToUpdate, isDone: true };
     axios.put(`${ENDPOINTS.TASKS}/${taskId}`, updatedTask)
       .then(response => setTasks(tasks.map((task) => task.id === taskId ? response.data : task)))
       .catch(error => console.error(error));

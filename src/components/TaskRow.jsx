@@ -9,7 +9,7 @@ const TaskRow = ({ task, deleteTask, markAsDone }) => {
     <tr className={rowClass}>
       <td>{task.description}</td>
       <td>{task.deadline}</td>
-      <td>{task.done ? 'Done' : 'Pending'}</td>
+      <td>{task.isDone ? 'Done' : 'Pending'}</td>
       <td>
         <button className="btn btn-danger" onClick={() => deleteTask(task.id)}>Delete</button>
         <button className="btn btn-success" onClick={() => markAsDone(task.id)}>Mark as Done</button>

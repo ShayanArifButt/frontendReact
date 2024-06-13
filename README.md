@@ -53,11 +53,11 @@ PUT /api/tasks/:id: Update an existing task.
 DELETE /api/tasks/:id: Delete a task.  
 
 ## Features  
-Add new tasks.
-View tasks in a table format.
-Mark tasks as done.
-Delete tasks.
-Highlight overdue tasks.
+Add new tasks.  
+View tasks in a table format.  
+Mark tasks as done.  
+Delete tasks.  
+Highlight overdue tasks.  
 
 
 

@@ -1,8 +1,63 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Todo App - React Frontend
 
-Currently, two official plugins are available:
+This is the frontend part of the Todo App, built with React and Vite. It interacts with the ASP.NET Core backend API to perform CRUD operations on tasks.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Prerequisites
+
+- Node.js (https://nodejs.org/)
+- npm (comes with Node.js) or yarn
+
+## Setup
+
+1. Clone the repository:
+
+```
+git clone <repository-url>
+cd ./frontendReact
+```
+
+## Install dependencies:
+
+```
+npm install
+```
+
+## Start the development server:
+
+```
+npm run dev
+```
+
+## Build and Preview
+To build the project for production:
+
+```
+npm run build
+```
+
+To preview the production build:
+
+```
+npm run preview
+```
+
+## API Endpoints  
+This React app interacts with the following API endpoints:
+
+GET /api/tasks: Fetch all tasks.  
+GET /api/tasks/:id: Fetch a task by ID.  
+POST /api/tasks: Create a new task.  
+PUT /api/tasks/:id: Update an existing task.  
+DELETE /api/tasks/:id: Delete a task.  
+
+## Features  
+Add new tasks.
+View tasks in a table format.
+Mark tasks as done.
+Delete tasks.
+Highlight overdue tasks.
+
+
+

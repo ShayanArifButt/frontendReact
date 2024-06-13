@@ -2,7 +2,13 @@ import React from 'react';
 
 const TaskRow = ({ task, deleteTask, markAsDone }) => {
 
-  const isOverdue = new Date(task.deadline) < new Date();
+  const taskDeadline = new Date(task.deadline);
+  taskDeadline.setHours(0, 0, 0, 0);
+
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  const isOverdue = taskDeadline < today;
   const rowClass = isOverdue ? 'table-danger' : '';
 
   return (
